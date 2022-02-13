@@ -11,5 +11,9 @@ class CarSensor(DistanceSensor):
 	        pin_factory=PiGPIOFactory(),
 	        threshold_distance=0.3
         )
-        self.intersection: Intersection = None
+        self.direction = None
+        self.intersection = None
+        self.when_in_range = self.__when_in_range
 
+    def __when_in_range(self):
+        self.intersection.update(self)

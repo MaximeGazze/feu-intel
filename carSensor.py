@@ -9,7 +9,7 @@ class CarSensor(DistanceSensor):
 	        trig_pin,
 	        max_distance=1,
 	        pin_factory=PiGPIOFactory(),
-	        threshold_distance=0.3
+	        threshold_distance=0.2
         )
         self.direction = None
         self.intersection = None

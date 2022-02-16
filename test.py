@@ -1,9 +1,9 @@
-from intersection import Intersection
+from intersection import Intersection, FourWayIntersection
 from trafficLight import TrafficLight
 from carSensor import CarSensor
 from time import sleep
 
-intersection = Intersection(
+intersection = FourWayIntersection(
     TrafficLight(13, 19, 26),
     TrafficLight(5, 6, 16),
     TrafficLight(17, 27, 22),

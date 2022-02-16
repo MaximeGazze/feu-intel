@@ -7,7 +7,7 @@ class TrafficLight:
         self.red_led = LED(red_led_pin, pin_factory=PiGPIOFactory())
         self.yellow_led = LED(yellow_led_pin, pin_factory=PiGPIOFactory())
         self.green_led = LED(green_led_pin, pin_factory=PiGPIOFactory())
-        self.intersection: Intersection = None
+        self.intersection = None
 
     def red(self):
         self.red_led.on()

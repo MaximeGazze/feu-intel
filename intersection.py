@@ -3,21 +3,12 @@ from carSensor import CarSensor
 from time import sleep
 
 class Intersection:
-# 4 way intersection configuration
-#     Nn
-#     |
-# Ww--+---Ee    UPPERCASE => TrafficLights
-#     |         LOWERCASE => CarSensor
-#     Ss
-# # # # # # # # # # # # # # # # # # # # # # #
-    def __init__(self, N, W, S, E, n, w, s, e):
-        self.traffic_lights = {'N': N, 'W': W, 'S': S, 'E': E}
-        self.car_sensors = {'N': n, 'W': w, 'S': s, 'E': e}
-        self.traffic_direction = None
-        for key, value in self.traffic_lights.items():
+    def __init__(self, traffic_lights: list, car_sensors: list):
+        self.traffic_direction: str = None
+        for key, value in traffic_lights.items():
             if (value == None): continue
             value.intersection = self
-        for key, value in self.car_sensors.items():
+        for key, value in car_sensors.items():
             if (value == None): continue
             value.intersection = self
             value.direction = key
@@ -50,11 +41,30 @@ class Intersection:
         if (subject.direction in ('N', 'S')): self.change_traffic_direction('Y')
         if (subject.direction in ('W', 'E')): self.change_traffic_direction('X')
 
+# 4 way intersection configuration
+#     Nn
+#     |
+# Ww--+---Ee    UPPERCASE => TrafficLights
+#     |         LOWERCASE => CarSensor
+#     Ss
+# # # # # # # # # # # # # # # # # # # # # # #
 
-# Lettre maj => disposition du senseur, min => disposition du feu de circ.
+class FourWayIntersection(Intersection):
+    def __init__(self, N, W, S, E, n, w, s, e):
+        self.traffic_lights = {'N': N, 'W': W, 'S': S, 'E': E}
+        self.car_sensors = {'N': n, 'W': w, 'S': s, 'E': e}
+        Intersection.__init__(self, self.traffic_lights, self.car_sensors)
+
+# 3 way intersection configuration
 #     N
-# Ww--+---Ee    configuration a 3 branches
-#     |
-#     |
+# Ww--+---Ee
+#     |         UPPERCASE => TrafficLights
+#     |         LOWERCASE => CarSensor
 #     s
+# # # # # # # # # # # # # # # # # # # # # # #
 
+class ThreeWayIntersection(Intersection):
+    def __init__(self, N, W, E, w, s, e):
+        self.traffic_lights = {'N': N, 'W': W, 'E': E}
+        self.car_sensors = {'W': w, 'S': s, 'E': e}
+        Intersection.__init__(self, self.traffic_lights, self.car_sensors)

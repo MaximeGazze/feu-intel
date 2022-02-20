@@ -1,6 +1,7 @@
 from gpiozero import LED
 from gpiozero.pins.pigpio import PiGPIOFactory
 
+
 class TrafficLight:
     def __init__(self, red_led_pin: int, yellow_led_pin: int, green_led_pin: int):
         self.state = None
@@ -9,25 +10,25 @@ class TrafficLight:
         self.green_led = LED(green_led_pin, pin_factory=PiGPIOFactory())
         self.intersection = None
 
-    def red(self):
+    def red(self) -> None:
         self.red_led.on()
         self.yellow_led.off()
         self.green_led.off()
         self.state = 'r'
 
-    def yellow(self):
+    def yellow(self) -> None:
         self.red_led.off()
         self.yellow_led.on()
         self.green_led.off()
         self.state = 'y'
 
-    def green(self):
+    def green(self) -> None:
         self.red_led.off()
         self.yellow_led.off()
         self.green_led.on()
         self.state = 'g'
 
-    def off(self):
+    def off(self) -> None:
         self.red_led.off()
         self.yellow_led.off()
         self.green_led.off()

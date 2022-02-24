@@ -1,32 +1,28 @@
-<h1 align="center"> <i><b> ~ Feu de circulation intelligent ~ </i></b></h1>
+<h1 align="center"><i><b> ~ Feu de circulation intelligent ~ </i></b></h1>
 
-# Plan de la lumière intelligent
-  >Rermerciment a **Sacha Blanc-Richard** pour le modèle et l'impression du feu de circulation.
+## Plan du feu de circulation intelligent
+  >Remerciement à **Sacha Blanc-Richard** pour le modèle et l'impression du feu de circulation.
 
 <img src="feuIntel_plan.png" alt="feuIntelPlan" width="900">
 
-# Impression 3D du feu
+## Impression 3D du feu de circulation
 <img src="feuIntel_3d.jpeg" alt="feuIntel3D" width="900">
 
-# Modélisation
+## Modélisation
 <img src="modelisation.png" alt="model" width="900">
 
-Installation:
+## Installation:
+Pour installer le code clonez le dépôt, lancez le processus pigpiod.
 ```
-git clone https://github.com/MaximeGazze/feu-intel.git && cd feu-intel
-```
-
-Lancer (si le service ne roule pas déjà):
-```
+git clone https://github.com/MaximeGazze/feu-intel.git 
+cd feu-intel
 sudo pigpiod
 ```
 
->Vous pouvez optionnellement exécuter le code après chaque démarrage avec:
-```
-sudo systemctl enable pigpiod
-```
+>Vous pouvez optionnellement exécuter pigpiod après chaque démarrage avec
+`sudo systemctl enable pigpiod`
 
-Puis vous pouvez exécutant le code avec:
+Puis vous pouvez exécuter le code avec:
 ```
 python3 main.py
 ```

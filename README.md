@@ -20,12 +20,12 @@ Lancer (si le service ne roule pas déjà):
 sudo pigpiod
 ```
 
->Vous pouvez optionnellement executer le code après chaque démarrage avec:
+>Vous pouvez optionnellement exécuter le code après chaque démarrage avec:
 ```
 sudo systemctl enable pigpiod
 ```
 
-Puis vous pouvez executant le code avec:
+Puis vous pouvez exécutant le code avec:
 ```
 python3 main.py
 ```

@@ -9,3 +9,23 @@
 
 # Modélisation
 <img src="modelisation.png" alt="model" width="900">
+
+Installation:
+```
+git clone https://github.com/MaximeGazze/feu-intel.git && cd feu-intel
+```
+
+Lancer (si le service ne roule pas déjà):
+```
+sudo pigpiod
+```
+
+>Vous pouvez optionnellement executer le code après chaque démarrage avec:
+```
+sudo systemctl enable pigpiod
+```
+
+Puis vous pouvez executant le code avec:
+```
+python3 main.py
+```

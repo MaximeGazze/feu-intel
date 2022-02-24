@@ -4,6 +4,13 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 
 class TrafficLight:
     def __init__(self, red_led_pin: int, yellow_led_pin: int, green_led_pin: int):
+        """
+        A collection of three LEDs (red, yellow and green) used as a traffic light.
+
+        :param red_led_pin: The red LED pin
+        :param yellow_led_pin: The yellow LED pin
+        :param green_led_pin: The green LED pin
+        """
         self.state = None
         self.red_led = LED(red_led_pin, pin_factory=PiGPIOFactory())
         self.yellow_led = LED(yellow_led_pin, pin_factory=PiGPIOFactory())

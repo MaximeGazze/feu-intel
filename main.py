@@ -1,4 +1,4 @@
-from intersection import Intersection, FourWayIntersection
+from intersection import FourWayIntersection
 from trafficLight import TrafficLight
 from carSensor import CarSensor
 from time import sleep

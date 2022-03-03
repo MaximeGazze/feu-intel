@@ -3,7 +3,7 @@ from time import sleep
 
 
 class Intersection:
-    def __init__(self, traffic_lights: dict[str, Any], car_sensors: dict[str, Any]):
+    def __init__(self, traffic_lights, car_sensors):
         """
         The base intersection class used to create intersections to manage traffic.
 
@@ -21,6 +21,7 @@ class Intersection:
             if value is None:
                 continue
             value.intersection = self
+            value.identifier = 'traffic_light_' + key
         for key, value in car_sensors.items():
             if value is None:
                 continue
@@ -59,12 +60,13 @@ class Intersection:
 
     def update(self, notifier) -> None:
         """Method used to update the traffic lights when a car is detected."""
-        print(notifier)
         if notifier.direction in ('N', 'S'):
             self.change_traffic_direction('Y')
         if notifier.direction in ('W', 'E'):
             self.change_traffic_direction('X')
-
+    
+    def returnStates(self):
+        return self.traffic_lights
 
 # 4 way intersection configuration
 #       Nn

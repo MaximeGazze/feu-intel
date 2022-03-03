@@ -27,14 +27,34 @@ intersection = FourWayIntersection(
     CarSensor(20, 21), # E
 )
 
-@my_iot.main_loop()
+@my_iot.main_loop(1)
 def main():
-    states = intersection.returnStates();
-    my_iot.update(projectId, {
-        "/documents/lights/W/state": states["W"].lightsStates(),
-        "/documents/lights/E/state": states["E"].lightsStates(),
-        "/documents/lights/S/state": states["S"].lightsStates(),
-        "/documents/lights/N/state": states["N"].lightsStates(),
-        })
-    sleep(1)
+    my_iot.update(projectId, "ligths",  {
+        "N": {
+	    "state": "OFF"
+	},
+	"S": {
+	    "state": "OFF"
+	},
+	"W": {
+	    "state": "OFF"
+	},
+	"E": {
+	    "state": "OFF"
+	}
+    })
+#while True:
+    traffic_lights_states = []
+    for key, value in intersection.returnStates():
+        light_state = value.lightsStates()
+        new_light_state = {"direction": key}
+        traffic_lights_states.append(light_state)
+    #logs.append({ 'date': datetime.now(), 'text': "WOOHOO" })
+    for i in range(traffic_lights_states):
+        logs.append(traffic_lights_states)
+
+    #my_iot.update(projectId, { 'logsCopy': logs })
+    #my_iot.update(projectId, { 'logs': logs })
+
+    #sleep(0.1)
 my_iot.begin()

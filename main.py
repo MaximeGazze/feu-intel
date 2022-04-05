@@ -21,8 +21,12 @@ intersection = FourWayIntersection(
     TrafficLight(5, 6, 16),
     TrafficLight(17, 27, 22),
     TrafficLight(23, 24, 25),
-    None, # N 8 12
-    None, # W 7 10
+#    None, # N 8 12
+#    None, # W 7 10
+#    None,
+#    None,
+    CarSensor(8, 12), # N
+    CarSensor(7, 10), # W
     CarSensor(18, 4), # S
     CarSensor(20, 21), # E
 )

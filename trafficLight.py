@@ -39,6 +39,13 @@ class TrafficLight:
         self.green_led.on()
         self.state = 'green'
 
+    def all(self) -> None:
+        """Change traffic light to green"""
+        self.red_led.on()
+        self.yellow_led.on()
+        self.green_led.on()
+        self.state = 'off'
+
     def off(self) -> None:
         """Change traffic light to off"""
         self.red_led.off()

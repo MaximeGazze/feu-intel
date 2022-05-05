@@ -9,7 +9,8 @@ from aliot.aliot import alive_iot as iot
 #projectId = '03abafda-6f0f-4747-a0e2-1d50f73995f3'
 
 # Url pour se connecter au services du site
-iot.ObjConnecteAlive.set_url("ws://albumfamilial.ca:8881/")
+iot.ObjConnecteAlive.set_url("wss://albumfamilial.ca/iotgateway/")
+iot.ObjConnecteAlive.set_api_url("https://albumfamilial.ca/api")
 
 # Id de votre objet connecté
 my_iot = iot.ObjConnecteAlive(
@@ -33,10 +34,10 @@ intersection = FourWayIntersection(
 def main():
     states = intersection.returnStates();
     my_iot.update_doc({
-        "/documents/lights/W/state": states["W"].lightsStates(),
-        "/documents/lights/E/state": states["E"].lightsStates(),
-        "/documents/lights/S/state": states["S"].lightsStates(),
-        "/documents/lights/N/state": states["N"].lightsStates(),
+        "/document/lights/W/state": states["W"].lightsStates(),
+        "/document/lights/E/state": states["E"].lightsStates(),
+        "/document/lights/S/state": states["S"].lightsStates(),
+        "/document/lights/N/state": states["N"].lightsStates(),
         })
     print("\n W: {} \n E: {} \n S: {} \n N: {}".format(states["W"].lightsStates(), states["E"].lightsStates(), states["S"].lightsStates(), states["N"].lightsStates()))
     print(states)

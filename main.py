@@ -5,9 +5,6 @@ from time import sleep
 
 from aliot.aliot import alive_iot as iot
 
-# Id du projet à modifier
-#projectId = '03abafda-6f0f-4747-a0e2-1d50f73995f3'
-
 # Url pour se connecter au services du site
 iot.ObjConnecteAlive.set_url("wss://albumfamilial.ca/iotgateway/")
 iot.ObjConnecteAlive.set_api_url("https://albumfamilial.ca/api")
@@ -29,8 +26,6 @@ intersection = FourWayIntersection(
 )
 
 @my_iot.main_loop()
-#TODO a effacer la boucle
-#while True:
 def main():
     states = intersection.returnStates();
     my_iot.update_doc({
